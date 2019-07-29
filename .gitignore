@@ -13,6 +13,7 @@ local.properties
 *.versionsBackup
 
 target/
+core/target/
 
 # Eclipse Core
 .project
