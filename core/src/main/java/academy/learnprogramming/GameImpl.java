@@ -16,6 +16,10 @@ public class GameImpl implements Game {
     private int remainingGuesses; //ile jeszcze prób pozostało
     private boolean validNumberRange = true;
 
+    public GameImpl(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg>
+    }
+
     @Override
     public void reset() { //resetowanie gry, ustawianie wartości początkowych na wszystkich polach
         smallest = 0;
