@@ -16,8 +16,13 @@ public class GameImpl implements Game {
     private int remainingGuesses; //ile jeszcze prób pozostało
     private boolean validNumberRange = true;
 
-    public GameImpl(NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg>
+//    public GameImpl(NumberGenerator numberGenerator) {
+//        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg> (constructor based dependency injection)
+//    }
+
+    //setter dla numberGeneratora
+    public void setNumberGenerator(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg> (setter based dependency injection)
     }
 
     @Override

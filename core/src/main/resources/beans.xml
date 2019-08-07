@@ -5,8 +5,11 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="numberGenerator" class="academy.learnprogramming.NumberGeneratorImpl"/>
+
     <bean id="game" class="academy.learnprogramming.GameImpl">
-        <constructor-arg ref="numberGenerator"/> <!--bean o takim id zostanie wstrzyknięty podczas tworzenia bena "game"-->
+        <!-- <constructor-arg ref="numberGenerator"/> --> <!--bean o takim id zostanie wstrzyknięty podczas tworzenia bena "game" za pomocą kontruktora; constructor based dependency injection-->
+        <property name="numberGenerator" ref="numberGenerator"/> <!-- bean o takim id jak zdefiniowanym w polu ref zostanie wstrzyknięty
+         do pola klasy GameImpl o nazwie podanej w polu name; setter based dependency injection-->
     </bean>
 
 </beans>
