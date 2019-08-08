@@ -29,9 +29,6 @@ public class Main {
         //get the GameImpl bean from context
         Game game = context.getBean(Game.class);
 
-        //call reset method
-        game.reset();
-
         //close context
         context.close();
     }

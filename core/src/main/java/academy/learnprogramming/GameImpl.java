@@ -3,6 +3,9 @@ package academy.learnprogramming;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class GameImpl implements Game {
 
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
@@ -16,16 +19,8 @@ public class GameImpl implements Game {
     private int remainingGuesses; //ile jeszcze prób pozostało
     private boolean validNumberRange = true;
 
-//    public GameImpl(NumberGenerator numberGenerator) {
-//        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg> (constructor based dependency injection)
-//    }
-
-    //setter dla numberGeneratora
-    public void setNumberGenerator(NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg> (setter based dependency injection)
-    }
-
     @Override
+    @PostConstruct
     public void reset() { //resetowanie gry, ustawianie wartości początkowych na wszystkich polach
         smallest = 0;
         guess = 0;
@@ -34,6 +29,20 @@ public class GameImpl implements Game {
         number = numberGenerator.next();
 
         log.debug("The number to guess is {}", number);
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        log.info("In Game preDestroy()");
+    }
+
+//    public GameImpl(NumberGenerator numberGenerator) {
+//        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg> (constructor based dependency injection)
+//    }
+
+    //setter dla numberGeneratora
+    public void setNumberGenerator(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg> (setter based dependency injection)
     }
 
     @Override
