@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--umożliwienie korzystania z adnotacji typu @Autowire itp...-->
+    <context:annotation-config/>
 
     <bean id="numberGenerator" class="academy.learnprogramming.NumberGeneratorImpl"/>
 
     <bean id="game" class="academy.learnprogramming.GameImpl" init-method="reset">
         <!-- <constructor-arg ref="numberGenerator"/> --> <!--bean o takim id zostanie wstrzyknięty podczas tworzenia bena "game" za pomocą kontruktora; constructor based dependency injection-->
-        <property name="numberGenerator" ref="numberGenerator"/> <!-- bean o takim id jak zdefiniowanym w polu ref zostanie wstrzyknięty
+        <!-- <property name="numberGenerator" ref="numberGenerator"/> --> <!-- bean o takim id jak zdefiniowanym w polu ref zostanie wstrzyknięty
          do pola klasy GameImpl o nazwie podanej w polu name; setter based dependency injection-->
     </bean>
 
-    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+    <!--umożliwienie korzystania z @PostConstruct i @PreDestroy-->
+    <!--<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
 </beans>

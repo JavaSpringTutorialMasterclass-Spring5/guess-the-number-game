@@ -2,6 +2,7 @@ package academy.learnprogramming;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -10,7 +11,9 @@ public class GameImpl implements Game {
 
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
+    @Autowired
     private NumberGenerator numberGenerator;
+
     private int guessCount = 10;
     private int number; //numer do odgadnięcia
     private int guess; //liczba podana przez gracza
@@ -41,9 +44,9 @@ public class GameImpl implements Game {
 //    }
 
     //setter dla numberGeneratora
-    public void setNumberGenerator(NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg> (setter based dependency injection)
-    }
+//    public void setNumberGenerator(NumberGenerator numberGenerator) {
+//        this.numberGenerator = numberGenerator; //tutaj zostanie wstrzyknięta zależność zdefiniowana w beans.xml w tagu <constructor-arg> (setter based dependency injection)
+//    }
 
     @Override
     public int getNumber() {
