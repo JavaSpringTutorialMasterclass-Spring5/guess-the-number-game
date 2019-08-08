@@ -18,7 +18,7 @@ public class Main {
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
 
         //odpytujemy kontekst o odpowiednią instancję beana po nazwie (id z pliku beans) i typie
-        NumberGenerator numberGenerator = context.getBean("numberGenerator", NumberGenerator.class);
+        NumberGenerator numberGenerator = context.getBean(NumberGenerator.class);
 
         //call method
         int number = numberGenerator.next();
