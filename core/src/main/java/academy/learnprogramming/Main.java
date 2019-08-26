@@ -25,8 +25,10 @@ public class Main {
         //log generated number
         log.info("generated number = {}", number);
 
-        //get the GameImpl bean from context
-        Game game = context.getBean(Game.class);
+        //get the MessageGeneratorImpl bean from context
+        MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);
+        log.info("getMainMessage = {}", messageGenerator.getMainMessage());
+        log.info("getResultMessage = {}", messageGenerator.getResultMessage());
 
         //close context
         context.close();
