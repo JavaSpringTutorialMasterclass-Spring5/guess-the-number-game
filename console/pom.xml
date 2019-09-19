@@ -15,7 +15,7 @@
         <dependency>
             <groupId>academy.learnprogramming</groupId>
             <artifactId>core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
