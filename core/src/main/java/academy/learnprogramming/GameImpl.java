@@ -18,8 +18,8 @@ public class GameImpl implements Game {
     private int guessCount = 10;
     private int number; //numer do odgadnięcia
     private int guess; //liczba podana przez gracza
-    private int smallest; //dolny zakres z którego generowana będzie liczba do odgadnięcia
-    private int biggest; //górny zakres z którego generowana będzie liczba do odgadnięcia
+    private int smallest; //dolny zakres z którego trzeba zgadywać liczbę
+    private int biggest; //górny zakres z którego trzeba zgadywać liczbę
     private int remainingGuesses; //ile jeszcze prób pozostało
     private boolean validNumberRange = true;
 
