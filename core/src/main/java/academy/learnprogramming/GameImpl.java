@@ -29,8 +29,8 @@ public class GameImpl implements Game {
     @Override
     @PostConstruct
     public void reset() { //resetowanie gry, ustawianie wartości początkowych na wszystkich polach
-        smallest = 0;
-        guess = 0;
+        smallest = numberGenerator.getMinNumber();
+        guess = numberGenerator.getMinNumber();
         remainingGuesses = guessCount;
         biggest = numberGenerator.getMaxNumber();
         number = numberGenerator.next();
