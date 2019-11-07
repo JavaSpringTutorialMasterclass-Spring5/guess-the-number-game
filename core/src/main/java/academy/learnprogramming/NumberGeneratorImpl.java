@@ -10,6 +10,7 @@ public class NumberGeneratorImpl implements NumberGenerator {
     private final Random random = new Random();
 
     @Autowired
+    @MaxNumber
     private int maxNumber;  //wstzyknięty zostanie bean o nazwie maxNumber, który zwróci odpowiedniego integera
 
     @Override

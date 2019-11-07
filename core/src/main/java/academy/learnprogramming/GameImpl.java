@@ -16,6 +16,7 @@ public class GameImpl implements Game {
     private NumberGenerator numberGenerator;
 
     @Autowired
+    @GuessCount
     private int guessCount; //wstzyknięty zostanie bean o nazwie guessCount, który zwróci odpowiedniego integera
 
     private int number; //numer do odgadnięcia
