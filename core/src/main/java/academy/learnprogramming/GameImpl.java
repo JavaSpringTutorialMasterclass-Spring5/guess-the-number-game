@@ -8,16 +8,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+@Component
 public class GameImpl implements Game {
 
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
-    @Autowired
-    private NumberGenerator numberGenerator;
-
-    @Autowired
-    @GuessCount
-    private int guessCount; //wstzyknięty zostanie bean o nazwie guessCount, który zwróci odpowiedniego integera
+    private final NumberGenerator numberGenerator;
+    private final int guessCount; //wstzyknięty zostanie bean o nazwie guessCount, który zwróci odpowiedniego integera
 
     private int number; //numer do odgadnięcia
     private int guess; //liczba podana przez gracza
@@ -25,6 +22,12 @@ public class GameImpl implements Game {
     private int biggest; //górny zakres z którego trzeba zgadywać liczbę
     private int remainingGuesses; //ile jeszcze prób pozostało
     private boolean validNumberRange = true;
+
+    @Autowired
+    public GameImpl(NumberGenerator numberGenerator,  int guessCount) {
+        this.numberGenerator = numberGenerator;
+        this.guessCount = guessCount;
+    }
 
     @Override
     @PostConstruct

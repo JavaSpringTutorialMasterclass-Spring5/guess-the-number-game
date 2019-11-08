@@ -1,4 +1,4 @@
-package academy.learnprogramming;
+package academy.learnprogramming.annotations;
 
 
 import org.springframework.beans.factory.annotation.Qualifier;
