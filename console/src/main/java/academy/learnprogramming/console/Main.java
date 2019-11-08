@@ -1,8 +1,6 @@
 package academy.learnprogramming.console;
 
 import academy.learnprogramming.config.AppConfig;
-import academy.learnprogramming.MessageGenerator;
-import academy.learnprogramming.NumberGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -18,19 +16,9 @@ public class Main {
         //create context container
         ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        //odpytujemy kontekst o odpowiednią instancję beana po nazwie (id z pliku beans) i typie
-        NumberGenerator numberGenerator = context.getBean(NumberGenerator.class);
-
-        //call method
-        int number = numberGenerator.next();
-
-        //log generated number
-        log.info("generated number = {}", number);
-
-        //get the MessageGeneratorImpl bean from context
-        MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);
-        log.info("getMainMessage = {}", messageGenerator.getMainMessage());
-        log.info("getResultMessage = {}", messageGenerator.getResultMessage());
+        //utworzenie kontekstu skutkuje wyzwoleniem eventu ContextRefreshedEvent w klasie ConsoleNumberGuess
+        //co skutkuje uruchomieniem się gry (uruchomieniem metody start z tej klasy)
+        //po zakończeniu gry (zakończeniu metody start) przechodzimy do kodu poniżej, czyli zamknięcia kontekstu
 
         //close context
         context.close();
