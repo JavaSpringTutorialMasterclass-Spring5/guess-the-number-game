@@ -24,6 +24,13 @@
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
         </dependency>
+        <!-- local lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>system</scope>
+            <systemPath>${basedir}/../libs/lombok.jar</systemPath>
+        </dependency>
     </dependencies>
 
 
