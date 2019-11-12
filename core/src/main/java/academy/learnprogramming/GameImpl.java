@@ -1,5 +1,9 @@
 package academy.learnprogramming;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,16 +12,20 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+@Slf4j
+@Getter
 @Component
 public class GameImpl implements Game {
 
-    private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
+    @Getter(AccessLevel.NONE)
+    private final NumberGenerator numberGenerator; //dla tego pola getter nie będzie widoczny spoza klasy
 
-    private final NumberGenerator numberGenerator;
     private final int guessCount; //wstzyknięty zostanie bean o nazwie guessCount, który zwróci odpowiedniego integera
 
-    private int number; //numer do odgadnięcia
+    @Setter
     private int guess; //liczba podana przez gracza
+
+    private int number; //numer do odgadnięcia
     private int smallest; //dolny zakres z którego trzeba zgadywać liczbę
     private int biggest; //górny zakres z którego trzeba zgadywać liczbę
     private int remainingGuesses; //ile jeszcze prób pozostało
@@ -56,41 +64,6 @@ public class GameImpl implements Game {
 //    }
 
     @Override
-    public int getNumber() {
-        return number;
-    }
-
-    @Override
-    public int getGuess() {
-        return guess;
-    }
-
-    @Override
-    public void setGuess(int guess) {
-        this.guess = guess;
-    }
-
-    @Override
-    public int getSmallest() {
-        return smallest;
-    }
-
-    @Override
-    public int getBiggest() {
-        return biggest;
-    }
-
-    @Override
-    public int getRemainingGuesses() {
-        return remainingGuesses;
-    }
-
-    @Override
-    public int getGuessCount() {
-        return guessCount;
-    }
-
-    @Override
     public void check() {
 
         checkValidNumberRange();
@@ -105,11 +78,6 @@ public class GameImpl implements Game {
         }
 
         remainingGuesses--;
-    }
-
-    @Override
-    public boolean isValidNumberRange() {
-        return validNumberRange;
     }
 
     @Override

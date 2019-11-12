@@ -2,14 +2,18 @@ package academy.learnprogramming;
 
 import academy.learnprogramming.annotations.MaxNumber;
 import academy.learnprogramming.annotations.MinNumber;
+import lombok.AccessLevel;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
+@Getter
 @Component
 public class NumberGeneratorImpl implements NumberGenerator {
 
+    @Getter(AccessLevel.NONE)
     private final Random random = new Random();
 
     private final int maxNumber;  //wstzyknięty zostanie bean o nazwie maxNumber, który zwróci odpowiedniego integera
@@ -24,15 +28,5 @@ public class NumberGeneratorImpl implements NumberGenerator {
     @Override
     public int next() {
         return random.nextInt(maxNumber - minNumber) + minNumber;
-    }
-
-    @Override
-    public int getMaxNumber() {
-        return maxNumber;
-    }
-
-    @Override
-    public int getMinNumber() {
-        return minNumber;
     }
 }
