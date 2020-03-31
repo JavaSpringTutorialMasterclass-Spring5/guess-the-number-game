@@ -1,0 +1,9 @@
+<configuration>
+
+    <!-- zaciągnięcie domyślnej konfiguracji od Spring Boota - dzięki temu nasz plik jest krótszy (poróna w plikiem logback.xml z projektu todo-list) -->
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <logger name="academy.learnprogramming" level="DEBUG"></logger>
+    <logger name="org.springframework" level="INFO"></logger>
+
+</configuration>
