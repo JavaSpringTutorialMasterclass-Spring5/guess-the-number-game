@@ -13,5 +13,6 @@ public class WebConfig implements WebMvcConfigurer {
 
         //definicja endpointu dla strony głównej
         registry.addViewController("/").setViewName(ViewNames.HOME);
+        registry.addViewController("/home").setViewName(ViewNames.HOME);
     }
 }
