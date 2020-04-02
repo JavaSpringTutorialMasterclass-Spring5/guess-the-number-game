@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -52,6 +53,17 @@ public class GameController {
         service.checkGuess(guess);
 
         //wracamy na stronę "play" gdzie albo wyświetlimy formularz, albo stronę na zakończenie gry
+        return GameMappings.REDIRECT_PLAY;
+    }
+
+    @GetMapping(GameMappings.RESTART)
+    public String restart() { //parametr po stronie thymeleafa też musi nazywać się guess
+
+        log.info("restarting the game");
+
+        service.reset();
+
+        //wracamy na stronę "play" gdzie - w tym przypadku - wyświetli się formularz z nową grą
         return GameMappings.REDIRECT_PLAY;
     }
 }
