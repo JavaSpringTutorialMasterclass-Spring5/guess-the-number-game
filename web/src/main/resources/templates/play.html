@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: headFragment}">
+<html lang="en">
+<head id="headId">
     <meta charset="UTF-8">
     <title>Game default text</title>
 </head>
@@ -9,16 +9,16 @@
 
     <h1>Guess the NumberGame</h1>
 
-    <h3 th:text="${__${T(academy.learnprogramming.util.AttributeNames).MAIN_MESSAGE}__}">Main Message Content</h3>
-    <h3 th:text="${__${T(academy.learnprogramming.util.AttributeNames).RESULT_MESSAGE}__}">Result Message Content</h3>
+    <h3 id="main-message">Main Message Content</h3>
+    <h3 id="result-message">Result Message Content</h3>
 
-    <form th:action="@{__${T(academy.learnprogramming.util.GameMappings).PLAY}__}" action="play" method="post">
+    <form id="game-form" action="play" method="post">
         <label for="guess">Enter your gues</label>
         <input id="guess" type="number" name="guess"/>
         <input type="submit" value="Submit"/>
     </form>
 
-    <footer th:replace="~{fragments/footer :: footerFragment}">
+    <footer id="footerId">
         <p>Sample footer</p>
     </footer>
 </div>
