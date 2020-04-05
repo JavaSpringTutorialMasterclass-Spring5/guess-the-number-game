@@ -5,5 +5,6 @@
 
     <logger name="academy.learnprogramming" level="DEBUG"></logger>
     <logger name="org.springframework" level="INFO"></logger>
+    <logger name="org.thymeleaf" level="INFO"></logger>
 
 </configuration>

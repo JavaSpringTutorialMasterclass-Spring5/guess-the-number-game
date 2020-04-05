@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: headFragment}">
+<html lang="en">
+<head id="headId">
     <meta charset="UTF-8">
     <title>Game over default title</title>
 </head>
@@ -8,11 +8,11 @@
 <div align="center">
     <h1>Welcome to the NumberGame</h1>
     <h2>Game Over</h2>
-    <h3 th:text="${__${T(academy.learnprogramming.util.AttributeNames).RESULT_MESSAGE}__}">Result message default value here</h3>
-    <a th:href="@{__${T(academy.learnprogramming.util.GameMappings).RESTART}__}" th:text="${'Play again'}">play again - default text</a>
-    <a th:href="@{__${T(academy.learnprogramming.util.GameMappings).HOME}__}" th:text="Home">home link - default text</a>
+    <h3 id="h3Id">Result message default value here</h3>
+    <a id="firstAId">play again - default text</a>
+    <a id="secondAId">home link - default text</a>
 
-    <footer th:replace="~{fragments/footer :: footerFragment}">
+    <footer id="footerId">
         <p>Sample footer</p>
     </footer>
 </div>
