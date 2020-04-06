@@ -6,6 +6,11 @@
     />
 
     <attr
+            sel="#gameTitleId"
+            th:text="#{game.title}"
+    />
+
+    <attr
             sel="#main-message"
             th:text="${__${T(academy.learnprogramming.util.AttributeNames).MAIN_MESSAGE}__}"
     />
@@ -18,6 +23,16 @@
     <attr
             sel="#game-form"
             th:action="@{__${T(academy.learnprogramming.util.GameMappings).PLAY}__}"
+    />
+
+    <attr
+            sel="#enterGuessLabelId"
+            th:text="#{game.enter.guess.label}"
+    />
+
+    <attr
+            sel="#submitButtonId"
+            th:value="#{game.submit.button}"
     />
 
     <attr

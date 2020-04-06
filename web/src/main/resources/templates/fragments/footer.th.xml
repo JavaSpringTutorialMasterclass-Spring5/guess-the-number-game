@@ -5,4 +5,9 @@
             th:fragment="footerFragment"
     />
 
+    <attr
+            sel="#createdBy"
+            th:text="|#{game.createdBy} the Learn Programming Academy|"
+    />
+
 </thlogic>
