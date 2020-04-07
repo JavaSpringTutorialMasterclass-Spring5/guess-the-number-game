@@ -6,18 +6,30 @@
     />
 
     <attr
+            sel="#gameTitleId"
+            th:text="#{game.title}"
+    />
+
+    <attr
+            sel="#gameOverHeader"
+            th:text="#{game.over}"
+    />
+
+    <attr
             sel="#h3Id"
             th:text="${__${T(academy.learnprogramming.util.AttributeNames).RESULT_MESSAGE}__}"
     />
 
     <attr
             sel="#firstAId"
-            th:href="@{__${T(academy.learnprogramming.util.GameMappings).RESTART}__}" th:text="${'Play again'}"
+            th:href="@{__${T(academy.learnprogramming.util.GameMappings).RESTART}__}"
+            th:text="#{link.play.again}"
     />
 
     <attr
             sel="#secondAId"
-            th:href="@{__${T(academy.learnprogramming.util.GameMappings).HOME}__}" th:text="Home"
+            th:href="@{__${T(academy.learnprogramming.util.GameMappings).HOME}__}"
+            th:text="#{link.home}"
     />
 
     <attr

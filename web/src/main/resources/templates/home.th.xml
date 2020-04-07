@@ -6,9 +6,14 @@
     />
 
     <attr
+            sel="#gameTitleId"
+            th:text="#{game.title}"
+    />
+
+    <attr
             sel="#link"
             th:href="@{__${T(academy.learnprogramming.util.GameMappings).PLAY}__}"
-            th:text="${'Click here to play'}"
+            th:text="#{link.start.game}"
     />
 
     <attr
